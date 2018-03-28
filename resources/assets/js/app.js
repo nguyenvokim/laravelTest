@@ -16,9 +16,13 @@ password = require('password-strength-meter');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-// Vue.component('example', require('./components/Example.vue'));
+var uiv = require('uiv');
+Vue.use(uiv);
 
 Vue.component('users-count', require('./components/UsersCount.vue'));
+Vue.component('linkManager', require('./components/LinkManager'));
+
+Vue.directive('commonButtonLoading', require('./components/CommonButtonLoading'));
 
 const app = new Vue({
     el: '#app'

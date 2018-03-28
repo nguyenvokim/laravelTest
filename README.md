@@ -5,18 +5,30 @@
     * ```\q```
 2. From the projects root run `cp .env.example .env`
 3. Configure your `.env` file
-4. Run `composer update -vvv` from the projects root folder
-5. From the projects root folder run:
+4. Create storage folder:
 ```
-php artisan vendor:publish --tag=laravelroles
-php artisan vendor:publish --tag=laravel2step
+mkdir storage && mkdir storage/framework && mkdir storage/framework/cache && mkdir storage/framework/views && mkdir storage/framework/sessions
 ```
+5. Run `composer update -vvv` from the projects root folder
 6. From the projects root folder run `sudo chmod -R 755 ../{your_project_folder_name}`
 7. From the projects root folder run `php artisan key:generate`
 8. From the projects root folder run `php artisan migrate`
 9. From the projects root folder run `composer dump-autoload`
 10. From the projects root folder run `php artisan db:seed`
 11. Compile the front end assets with [npm steps](#using-npm) or [yarn steps](#using-yarn).
+12. For develop, you may need to config your v-host and edit your `hosts` file
+````
+<VirtualHost *:80>
+    ServerAdmin admin@laraveltest.localhost.com
+    ServerName laraveltest.localhost.com
+    DocumentRoot "/Applications/XAMPP/htdocs/laravelTest/public"
+    <Directory "/Applications/XAMPP/htdocs/laravelTest/public">
+        Options Indexes FollowSymLinks Includes ExecCGI
+        AllowOverride all
+        Require all granted
+    </Directory>
+</VirtualHost>
+````
 
 #### Build the Front End Assets with Mix
 ##### Using NPM:

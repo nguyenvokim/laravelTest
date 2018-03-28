@@ -19,6 +19,11 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             {{-- Left Side Of Navbar --}}
             <ul class="nav navbar-nav">
+                @if (Auth::id())
+                <li class="">
+                    <a href="{{route('link.manager')}}">Short link manager</a>
+                </li>
+                @endif
                 @role('admin')
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

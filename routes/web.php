@@ -93,6 +93,10 @@ Route::group(['middleware' => ['auth', 'activated', 'currentUser', 'activity', '
 
     // Route to upload user avatar.
     Route::post('avatar/upload', ['as' => 'avatar.upload', 'uses' => 'ProfilesController@upload']);
+
+    Route::get('/linkManager', ['as' => 'link.manager', 'uses' => 'Api\ShortLinkController@managerView']);
+    Route::get('/link/{link}', ['as' => 'link.index', 'uses' => 'ShortLinkController@index']);
+    Route::resource('/api/links', 'Api\ShortLinkController');
 });
 
 // Registered, activated, and is admin routes.
